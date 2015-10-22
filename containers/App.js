@@ -31,7 +31,7 @@ class App extends Component {
         content = <Counter counter={counter} dispatch={dispatch} />;
         break;
       case 'textInput':
-        content = <TextInput value={textInput} dispatch={dispatch} />;
+        content = <TextInput textInput={textInput} dispatch={dispatch} />;
         break;
       default:
         content = <div>Default, oops!</div>;
