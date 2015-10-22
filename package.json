@@ -1,0 +1,43 @@
+{
+  "name": "redux-spa-test",
+  "version": "0.0.0",
+  "description": "Rudimentary attempt at build a Single Page App in React and Redux",
+  "scripts": {
+    "start": "node server.js",
+    "test": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register --require ./test/setup.js",
+    "test:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "bugs": {},
+  "homepage": "",
+  "dependencies": {
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-redux": "^4.0.0",
+    "redux": "^3.0.0",
+    "redux-thunk": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.6.18",
+    "babel-loader": "^5.1.4",
+    "babel-plugin-react-transform": "^1.1.0",
+    "css-loader": "^0.20.2",
+    "expect": "^1.6.0",
+    "express": "^4.13.3",
+    "jsdom": "^5.6.1",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
+    "mocha": "^2.2.5",
+    "node-libs-browser": "^0.5.2",
+    "react-addons-test-utils": "^0.14.0",
+    "react-transform-hmr": "^1.0.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.9.11",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.2.0"
+  }
+}
