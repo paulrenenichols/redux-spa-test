@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import * as HeaderActions from '../actions/header';
+import * as RouteActions from '../actions/routeState';
 
 class header extends Component {
 
@@ -7,23 +7,23 @@ class header extends Component {
     super(props);
   }
 
-  makeClickHandler(nextPage) {
+  makeClickHandler(routeState) {
     const { dispatch } = this.props;
     return function(event) {
-      console.log('nextPage: ' + nextPage);
-      dispatch(HeaderActions.pageChange(nextPage));
+      console.log('routeState: ' + routeState);
+      dispatch(RouteActions.routeState(routeState));
     }
   }
 
 
   render() {
-    const { dispatch, activePage } = this.props;
+    const { dispatch, routeState } = this.props;
     return (
         <div className={'nav'}>
           <ul>
-            <li  className={(activePage === 'home') ? 'active' : ''}       ><a onClick={this.makeClickHandler('home')}>Home</a></li>
-            <li  className={(activePage === 'counter') ? 'active' : ''}    ><a onClick={this.makeClickHandler('counter')}>Counter</a></li>
-            <li  className={(activePage === 'textInput') ? 'active' : ''}  ><a onClick={this.makeClickHandler('textInput')}>Text Input</a></li>
+            <li  className={(routeState === 'home') ? 'active' : ''}       ><a onClick={this.makeClickHandler('home')}>Home</a></li>
+            <li  className={(routeState === 'counter') ? 'active' : ''}    ><a onClick={this.makeClickHandler('counter')}>Counter</a></li>
+            <li  className={(routeState === 'textInput') ? 'active' : ''}  ><a onClick={this.makeClickHandler('textInput')}>Text Input</a></li>
           </ul>
         </div>
     );
@@ -32,7 +32,7 @@ class header extends Component {
 
 header.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  activePage: PropTypes.string.isRequired
+  routeState: PropTypes.string.isRequired
 };
 
 export default header;

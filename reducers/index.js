@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
 import textInput from './textInput';
-import activePage from './header';
+import routeState from './routeState';
 
 const rootReducer = combineReducers({
   counter,
   textInput,
-  activePage
+  routeState
 });
 
 function loggingReducer(state, action) {

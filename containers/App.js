@@ -5,44 +5,54 @@ import Counter from '../components/Counter';
 import TextInput from '../components/TextInput';
 import Header from '../components/Header';
 
+import * as HashRouter from '../router/hashRouter'
+
 function mapStateToProps(state) {
   return {
     counter: state.counter,
     textInput: state.textInput,
-    activePage: state.activePage
+    routeState: state.routeState
   };
 }
 
+HashRouter.initializeRouter();
+
+HashRouter.registerRoute({
+  routeState: 'home',
+  routeHash: '',
+  content: <div>This is the home page</div>
+});
+
+HashRouter.registerRoute({
+  routeState: 'counter',
+  routeHash: 'counter',
+  component: Counter
+});
+
+HashRouter.registerRoute({
+  routeState: 'textInput',
+  routeHash: 'textInput',
+  component: TextInput
+});
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const { dispatch, textInput, counter, activePage } = this.props;
+    const { dispatch, textInput, counter, routeState } = this.props;
 
-    console.log('App render: activePage: ', activePage);
+    HashRouter.changeHash(routeState);
 
-    var content;
-
-    switch (activePage) {
-      case 'home':
-        content = <div>This is the home page</div>;
-        break;
-      case 'counter':
-        content = <Counter counter={counter} dispatch={dispatch} />;
-        break;
-      case 'textInput':
-        content = <TextInput textInput={textInput} dispatch={dispatch} />;
-        break;
-      default:
-        content = <div>Default, oops!</div>;
-        break;
-    }
+    console.log('App render: routeState: ', routeState);
 
     return (
       <div>
-        <Header activePage={activePage} dispatch={dispatch} />
+        <Header {...this.props} />
         <div className={'content'}>
-          {content}
+          {HashRouter.routeStateContent(routeState, this.props)}
         </div>
       </div>
     );

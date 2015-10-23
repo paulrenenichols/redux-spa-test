@@ -1,9 +1,9 @@
-import { PAGE_CHANGE } from '../actions/header';
+import { ROUTE_STATE } from '../actions/routeState';
 
-export default function activePage(state = "home", action) {
+export default function routeState(state = "home", action) {
   switch (action.type) {
-    case PAGE_CHANGE:
-      return action.activePage;
+    case ROUTE_STATE:
+      return action.routeState;
     default:
       return state;
   }

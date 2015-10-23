@@ -1,8 +1,8 @@
-export const PAGE_CHANGE = 'PAGE_CHANGE';
+export const ROUTE_STATE = 'ROUTE_STATE';
 
-export function pageChange(activePage) {
+export function routeState(routeState) {
   return {
-    type: PAGE_CHANGE,
-    activePage
+    type: ROUTE_STATE,
+    routeState
   };
 }
